@@ -20,27 +20,6 @@ Tasks in the Role
 
 
 
-<img title="Istio" width="80" height="80" src="https://cdn-images-1.medium.com/max/1600/1*IygIdDiNgq3YBzTtaYvIWA.png">
-
-
-- Install Istio Service Mesh
-
-
-
-
-<img title="Knative" width="80" height="80" src="https://cdn-images-1.medium.com/max/1200/1*fWtVse6DItxvOBowU85Www.png">
-
-
-- Install Knative and Dependencies
-
-
-
-
-<img title="Kiali" width="120" height="80" src="https://cdn-images-1.medium.com/max/600/1*YishSzZFrWdMIJS4JF6LZw@2x.png">
-
-
-- Install Kiali to Service Mesh Observavility
-
 
 
 Requirements
@@ -122,18 +101,8 @@ __PaaS Knowledge Group__
 
 ## Members:
 * Adrián González
-* Alejandro Torres
-* Antonio Sequera
-* Iñigo Iglesias
-* Jeferson Ortiz
-* Jesus Sanchez
 * Jonis González
-* Jordy Peralta
-* Miguel Rivera
-* Mostafa Charem
-* Omar Rodriguez
-* Pedro Peñaloza
-* Yasser Aquino
+
 
 
 
