@@ -1,0 +1,5 @@
+- import_tasks: macos_sdk_install.yaml
+  when: ansible_distribution == 'MacOSX'
+
+- import_tasks: linux_sdk_install.yaml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Debian' or ansible_distribution == 'RedHat' or ansible_distribution == 'Ubuntu'

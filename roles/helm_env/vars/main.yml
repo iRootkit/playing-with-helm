@@ -1,0 +1,43 @@
+---
+# vars file for everis-paas-demo
+mac_os:
+  sdk_version: '238.0.0'
+  arc: 'x86_64'
+
+gcp:
+  project_id: helical-apricot-222515
+  zone: 'us-central1-a'
+  resources: ['compute.googleapis.com' ,'container.googleapis.com' ,'cloudbuild.googleapis.com']
+  k8s_cluster_name: anis-cartujo
+  k8s_min_nodes: 1
+  k8s_man_nodes: 6
+  k8s_num_nodes: 2
+  k8s_admin_sa: trap-money
+  k8s_admin_binding: root-sa-binding
+  k8s_tiller_sa: tiller
+  k8s_tiller_binding: tiller
+  sdk_working_directory: /home
+  sdk_url: https://sdk.cloud.google.com
+  components: ['kubectl',]
+
+demo:
+  namespaces: 'default'
+
+api:
+  name:
+    v1: gc-example-a
+    v2: gc-example-b
+  frontend: por-definir  
+
+helm:
+  dw_url: https://storage.googleapis.com/kubernetes-helm/helm-v2.13.0-linux-amd64.tar.gz
+  dw_directory: /home
+  pkg_name: helm-v2.13.0-linux-amd64.tar.gz
+
+kiali:
+  dw_url: https://raw.githubusercontent.com/kiali/kiali/master/deploy/kubernetes/deploy-kiali-to-kubernetes.sh
+  dw_directory: /home
+
+#Observability Kiali
+KIALI_USERNAME: admin
+KIALI_PASSPHRASE: admin
