@@ -26,12 +26,6 @@
   when: google_pkg.stat.exists == False
 
 
-- name: Install CLI tools
-  shell: |
-    gcloud components install {{ item }}
-  loop: "{{ gcp.components }}"
-
-
 - name: Create Path to CLI tool
   lineinfile:
      path: /etc/profile.d/env.sh
@@ -40,3 +34,8 @@
 
 - name: Apply new Path
   shell: source /etc/profile.d/env.sh
+
+  - name: Install CLI tools
+  shell: |
+    gcloud components install {{ item }}
+  loop: "{{ gcp.components }}"
