@@ -35,7 +35,7 @@
 - name: Apply new Path
   shell: source /etc/profile.d/env.sh
 
-  - name: Install CLI tools
+- name: Install CLI tools
   shell: |
     gcloud components install {{ item }}
   loop: "{{ gcp.components }}"
