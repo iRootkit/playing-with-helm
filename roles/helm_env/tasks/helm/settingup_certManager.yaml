@@ -1,0 +1,30 @@
+---
+
+
+- name: Generate Self Signed SSL Certificates
+  shell: |
+    openssl req {{ certificate.type }} -nodes -days {{ certificate.durantion_days }} -newkey {{ certificate.length }} -keyout "{{ certificate.outputdir }}/{{ certificate.keyout }}" -out "{{ certificate.outputdir }}/{{ certificate.certout }}" -subj "/CN={{ certificate.cn }}/O={{ certificate.ou }}"
+
+- name: Create secret for ingress controller
+  shell: |
+    kubectl create secret tls {{ ingress_controller.secret }} --key "{{ certificate.outputdir }}/{{ certificate.keyout }}" --cert "{{ certificate.outputdir }}/{{ certificate.certout }}"
+
+- name: Deploy Ingress controller
+  shell: |
+    helm install stable/nginx-ingress --name ingress-controller \
+    --set controller.extraArgs.default-ssl-certificate="default/{{ ingress_controller.secret }}" \
+    --set-string controller.extraArgs.enable-ssl-chain-completion="false"
+
+- name: Create Certmanager Deployment
+  shell: |
+    helm install \
+    --name anis-cartujo-certmanager \
+    --namespace kube-system \
+    --set rbac.create=true \
+    --version v0.5.2 \
+    stable/cert-manager
+
+- name: Apply Cluster Issuer and Certificate
+  shell: |
+    kubectl apply -f {{ role_path }}/files/selfsigning-Clusterissuer.yml
+    kubectl apply -f {{ role_path }}/files/selfsigning-Certificate.yml

@@ -22,6 +22,11 @@
     msg: " Cluster {{ gcp.k8s_cluster_name }} already exist into project: {{ gcp.project_id }} "
   when: gcp.k8s_cluster_name in current_deploy_cluster.stdout.split()
 
+- name: Delete current kubeconfig
+  file:
+    state: absent
+    path: "{{ lookup('env', 'HOME') }}/.kube/config"
+
 - name: Get cluster Credential
   shell: gcloud container clusters get-credentials {{ gcp.k8s_cluster_name }}
 

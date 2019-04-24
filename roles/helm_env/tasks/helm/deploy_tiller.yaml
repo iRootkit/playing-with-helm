@@ -4,3 +4,6 @@
 
 - name: Install tiller server
   shell: helm init --service-account tiller
+
+- name: Waiting for tiller pod
+  wait_for: timeout=60

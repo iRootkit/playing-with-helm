@@ -7,4 +7,6 @@
   when: platform == 'gcp'
 
 - include_tasks: helm/settingup_helm.yaml
+
+- include_tasks: helm/settingup_certManager.yaml
   
