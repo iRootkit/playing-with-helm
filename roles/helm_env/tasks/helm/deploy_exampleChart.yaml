@@ -1,8 +1,8 @@
 ---
 
 
-- name: Create Nginx Example Deployment
+- name: Create ELK Example Deployment
   shell: |
     helm install \
-    --name trap-money-elk
+    --name trap-money-elk \
     stable/elastic-stack

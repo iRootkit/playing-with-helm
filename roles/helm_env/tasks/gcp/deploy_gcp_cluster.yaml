@@ -15,7 +15,8 @@
                             --enable-autoscaling \
                             --min-nodes {{ gcp.k8s_min_nodes }} \
                             --max-nodes {{ gcp.k8s_man_nodes }} \
-                            --num-nodes {{ gcp.k8s_num_nodes }}
+                            --num-nodes {{ gcp.k8s_num_nodes }} \
+                            --machine-type {{ gcp.machine_type }}
   when: gcp.k8s_cluster_name not in current_deploy_cluster.stdout.split()
 
 - debug:
