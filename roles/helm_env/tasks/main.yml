@@ -9,4 +9,6 @@
 - include_tasks: helm/settingup_helm.yaml
 
 - include_tasks: helm/settingup_certManager.yaml
+
+- include_tasks: helm/deploy_exampleChart.yaml
   
